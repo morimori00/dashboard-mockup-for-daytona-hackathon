@@ -1,4 +1,5 @@
 export * from "./color-mode-selector";
+export * from "./color-theme-changer";
 export * from "./content-layout-selector";
 export * from "./preset-selector";
 export * from "./radius-selector";
