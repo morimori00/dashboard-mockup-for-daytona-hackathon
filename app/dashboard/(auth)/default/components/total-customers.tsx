@@ -1,25 +1,24 @@
 import { Users2Icon } from "lucide-react";
-import { Card, CardAction, CardDescription, CardHeader } from "@/components/ui/card";
+
+import { KpiDetailCard } from "./kpi-detail-card";
 
 export function TotalCustomersCard() {
   return (
-    <Card>
-      <CardHeader>
-        <CardDescription>Total Customers</CardDescription>
-        <div className="flex flex-col gap-2">
-          <h4 className="font-display text-2xl lg:text-3xl">1890</h4>
-          <div className="text-muted-foreground text-sm">
-            <span className="text-green-600">+10.4%</span> from last month
-          </div>
-        </div>
-        <CardAction>
-          <div className="flex gap-4">
-            <div className="bg-muted flex size-12 items-center justify-center rounded-full border">
-              <Users2Icon className="size-5" />
-            </div>
-          </div>
-        </CardAction>
-      </CardHeader>
-    </Card>
+    <KpiDetailCard
+      title="Total Customers"
+      value="1,890"
+      change="+10.4%"
+      changeDirection="up"
+      icon={Users2Icon}
+      description="Tracks the active customer base across all accounts."
+      previousValue="1,712"
+      target="2,000"
+      targetProgress={94.5}
+      breakdown={[
+        { label: "New customers", value: "176", context: "Added this month" },
+        { label: "Returning customers", value: "1,128", context: "59.7% of total" },
+        { label: "At-risk customers", value: "86", context: "Needs follow-up" }
+      ]}
+    />
   );
 }

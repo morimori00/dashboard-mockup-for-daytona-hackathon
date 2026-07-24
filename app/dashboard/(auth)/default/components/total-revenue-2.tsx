@@ -1,25 +1,24 @@
 import { WalletMinimal } from "lucide-react";
-import { Card, CardAction, CardDescription, CardHeader } from "@/components/ui/card";
+
+import { KpiDetailCard } from "./kpi-detail-card";
 
 export function TotalRevenueCard2() {
   return (
-    <Card>
-      <CardHeader>
-        <CardDescription>Total Revenue</CardDescription>
-        <div className="flex flex-col gap-2">
-          <h4 className="font-display text-2xl lg:text-3xl">$435,578</h4>
-          <div className="text-muted-foreground text-sm">
-            <span className="text-green-600">+20.1%</span> from last month
-          </div>
-        </div>
-        <CardAction>
-          <div className="flex gap-4">
-            <div className="bg-muted flex size-12 items-center justify-center rounded-full border">
-              <WalletMinimal className="size-5" />
-            </div>
-          </div>
-        </CardAction>
-      </CardHeader>
-    </Card>
+    <KpiDetailCard
+      title="Total Revenue"
+      value="$435,578"
+      change="+20.1%"
+      changeDirection="up"
+      icon={WalletMinimal}
+      description="Measures recognized revenue across every business line."
+      previousValue="$362,679"
+      target="$500,000"
+      targetProgress={87.1}
+      breakdown={[
+        { label: "Subscriptions", value: "$192,320", context: "44.2% of revenue" },
+        { label: "Services", value: "$143,258", context: "32.9% of revenue" },
+        { label: "Products", value: "$100,000", context: "23.0% of revenue" }
+      ]}
+    />
   );
 }
